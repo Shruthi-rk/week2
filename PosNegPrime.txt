@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class PosNegPrime
+  {
+    public static void main(String args[])
+    {
+    Scanner s=new Scanner(System.in);
+    int posi=-1,neg=-1,prim=-1,factor=0;
+    System.out.println("Enter the length of the array ");
+    int len=s.nextInt();
+    int a[]=new int[len];
+    for(int i=0;i<len;i++)
+      {
+        System.out.println("Enter the number"+(i+1));
+        a[i]=s.nextInt();
+      }
+    int p[]=new int[len];
+    int n[]=new int[len];
+    int pri[]=new int[len];
+     for(int i=0;i<len;i++) 
+     {
+          if(a[i]>0) 
+          {
+            p[++posi]=a[i];    
+          }
+          else 
+          {
+            n[++neg]=a[i];  
+          }
+         
+          for(int j=1;j<=a[i]/2;j++) {
+             if(a[i]%j==0) {
+                 factor++;
+             }
+          }
+          if(factor==1) {
+              pri[++prim]=a[i];
+          }
+          factor=0;
+      }
+      System.out.print("Positive values: ");
+      for(int i=0;i<posi;i++) {
+          System.out.print(p[i]+" ");
+      }
+      System.out.println();
+  
+      System.out.print("Negative values: ");      
+      for(int i=0;i<neg;i++) {
+          System.out.print(n[i]+" ");
+      }
+       System.out.println();
+      System.out.print("Prime values: ");      
+      for(int i=0;i<prim;i++) {
+          System.out.print(pri[i]+" ");
+      }
+    }
+  }
