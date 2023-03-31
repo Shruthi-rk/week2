@@ -1,0 +1,154 @@
+import java.util.Scanner;
+public class Report
+{ 
+  Scanner s=new Scanner(System.in);
+  public void maxVal(int a[],int len)
+  {
+    int max=a[0];
+    for(int i=0;i<len;i++)
+      {
+        if(a[i]>max)
+        {
+           max=a[i];
+         }
+      }
+     System.out.println("Maximum number is " +max);
+  }
+  public void smaxVal(int a[],int len)
+  {
+    int max=a[0],smax=a[0];
+    for(int i=0;i<len;i++)
+      {
+        if(a[i]>max)
+        {
+           smax=max;
+           max=a[i];
+         }
+      }
+     System.out.println("Second Maximum number is " +smax);
+  }
+  public void minVal(int a[],int len)
+  {
+    int min=a[0];
+    for(int i=0;i<len;i++)
+      {
+        if(a[i]<min)
+        {
+           min=a[i];
+         }
+      }
+     System.out.println("Minimum number is " +min);
+  }
+  
+    public void sminVal(int a[],int len)
+  {
+    int smin = Integer.MAX_VALUE,min=a[0];
+    for (int i = 0; i < len; i++)
+      {
+       if (a[i] < smin && a[i] > min) 
+       {
+                smin = a[i];
+       }
+       }
+     System.out.println("Second Minimum number is " +smin);
+  }
+  public void evenCount(int a[],int len)
+  {
+    int count=0;
+    for(int i=0;i<len;i++)
+      {
+       if(a[i]%2==0)
+       {
+         count=count+1;
+       }
+     }
+    System.out.println("Even count is "+count);
+  }
+  public void total(int a[],int len)
+  {
+    int sum = 0;
+    for (int i = 0; i < len; i++) 
+    {
+      sum += a[i];
+    }
+    System.out.println("Total value: " + sum);
+  }
+  public void avg(int a[],int len)
+  {
+    int sum = 0;
+    for (int i = 0; i < len; i++) {
+      sum += a[i];
+    }
+    double average = (double) sum / len;
+    System.out.println("Average value: " + average);
+  }
+  public void sumEO(int a[],int len)
+  {
+    int sume=0,sumo=0;
+    for (int i = 0; i <len; i++) 
+    {
+      if (a[i]%2 == 0) 
+      {
+        sume = sume + a[i];
+      }
+      else
+        {
+          sumo=sumo+a[i];
+        }
+    }
+    System.out.println("Sum of even numbers is "+sume);
+    System.out.println("Sum of odd numbers is "+sumo);
+  }
+    public void viewOption(int a[],int len)
+  {
+    int opt=0;
+    do
+    {
+    System.out.println("\nEnter the option number");
+    System.out.println("1.Max value");
+    System.out.println("2.Second Max value");
+    System.out.println("3.Min value");
+    System.out.println("4.Second Min value");
+    System.out.println("5.Total value");
+    System.out.println("6.Average value");
+    System.out.println("7.Sum of even and odd value");
+    System.out.println("8.Num of even value");
+    opt=s.nextInt();
+    switch(opt)
+      {
+        case 1: maxVal(a,len);
+                //break;
+        case 2: smaxVal(a,len);
+               // break;
+        case 3:minVal(a,len);
+                //break;
+        case 4:sminVal(a,len);
+                //break;
+        case 5:total(a,len);
+               // break;
+        case 6:avg(a,len);
+               // break;
+        case 7:sumEO(a,len);
+               // break;
+        case 8:evenCount(a,len);
+               // break;
+        default:System.out.println("Enter valid option");
+                break;
+      }
+    }while(opt!=0);
+  }
+    public static void main(String args[])
+  {
+    Scanner s=new Scanner(System.in);
+    System.out.println("Enter the array length");
+    int len=s.nextInt();
+    int a[]=new int[len];
+      for(int i=0;i<len;i++)
+        {
+          System.out.println("Enter the number" +(i+1));
+          a[i]=s.nextInt();
+        }
+      Report obj=new Report();
+      obj.viewOption(a,len);
+  }
+}
